@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dylan Austin</title>
+    <style>
+  /* Reset basic margins */
+  * {
+  box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(62, 81, 116);
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  .gallery-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  .img, .gallery-img, .img-shadowonly {
+      width: 70%;
+      min-width: 20%;
+      height: auto;
+    }
+
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .container {
+    max-width: 1200px;
+    min-width: 700px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 20px;
+    padding-top: 50px;
+    justify-content: center;
+    background-color: rgb(72, 85, 121);
+    color: #ddd;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    width: 100%;
+  }
+  
+  .containerLeft,
+  .containerRight {
+    width: 100%;
+    min-width: 30%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .containerLeft {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 1rem;
+    padding-top: 50px;
+    color: #ddd;
+    width: 100%;
+  }
+
+  .containerRight {
+    max-width: 400px;
+    margin-top: 20px;
+    padding: 20px;
+    padding-top: 50px;
+    color: #ddd;
+    width: 100%;
+  }
+
+  .Heads {
+    font-size: 35px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .img-wrapper {
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgb(62, 81, 116);
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  .img-background {
+    max-width: 60%;
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgb(159, 170, 202);
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  .img, .gallery-img, .img-shadowonly {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  .img {
+    max-width: 130px;
+  }
+
+  .img-shadowonly {
+    width: 70%;
+  }
+
+  .nav {
+    display: flex;
+    gap: 1rem;
+    font-size: 24px;
+  }
+
+  .head-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgb(52, 63, 95);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    height: 60px; /* controls bar height */
+    display: flex;
+    align-items: center; /* center the nav vertically inside */
+    justify-content: center; /* center the nav horizontally */
+    padding: 0 1rem;
+  }
+
+  .nav a {
+    color: rgb(212, 212, 212);
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .nav a:hover {
+    text-decoration: underline;
+  }
+
+  #Text, article p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  article h2 {
+    margin-top: 30px;
+    font-size: 24px;
+    color: rgb(230, 230, 230);
+  }
+
+  #BackgroundLayer {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(113, 138, 206);
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  .links {
+    color: rgb(212, 212, 212);
+    text-decoration: underline;
+  }
+
+  .hide-info {
+    display: none;
+  }
+
+  .show-info {
+    display: block;
+  }
+
+  /* ===================
+     MEDIA QUERIES
+     =================== */
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+    .head-container{
+      height: 40px;
+    }
+
+    .container{
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      padding: 1rem;
+      box-sizing: border-box;
+      order: 1;
+    }
+    .containerLeft,
+    .containerRight,
+    .content {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      padding: 1rem;
+      box-sizing: border-box;
+      margin: 0 auto;
+      text-align: center;
+      order: 2;
+    }
+
+    .img, .gallery-img, .img-shadowonly {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .nav {
+    display: flex;
+    gap: 1rem;
+    font-size: 16px;
+    }
+    .page-title {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 0 0.5rem;
+    }
+
+    .page-title {
+      font-size: 1.6rem;
+    }
+    .layout {
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+    .head-container{
+      height: 40px;
+    }
+
+    .container{
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      padding: 1rem;
+      box-sizing: border-box;
+      order: 1;
+    }
+    .containerLeft,
+    .containerRight,
+    .content {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      padding: 1rem;
+      box-sizing: border-box;
+      margin: 0 auto;
+      text-align: center;
+      order: 2;
+    }
+
+    .img, .gallery-img, .img-shadowonly {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .nav {
+    display: flex;
+    gap: 1rem;
+    font-size: 16px;
+  }
+
+    h2 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+    </style>
+  </head>
+  
+  <script>
+  // Wait until the page content has fully loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.gallery-img').forEach(image => {
+      image.addEventListener('click', function () {
+        const infoBox = this.nextElementSibling;
+        infoBox.classList.toggle('show-info');
+        infoBox.classList.toggle('hide-info');
+      });
+    });
+  });
+  </script>
+
+  <body>
+    <div class = "layout">
+        <div class = "containerLeft">
+            <h1>My Completed Works:</h1>
+            <img src="https://raw.githubusercontent.com/DylanAustin-TheDreamer/Website/refs/heads/main/Hologram%20City.png" class = "gallery-img">
+            <div class = "hide-info">
+                <p></p>
+                <p>Hologram City - Concept Album</p>
+                <p>Hologram City, to me, as a music album, was a way to finally create something contemporary — but with a twist. I wanted to be contemporary by creating distance between the real world and the world of art; the world of escapism. As it should be. What I dislike about some modern songs is how they express contemporary themes, like social media, by directly referencing service providers. Personally, I think that feels like advertising, and it feeds into the sort of borderline capitalism we experience every day through media, constantly saying, “Look at our services, we can provide you with something secure.” The world of art should be our escape from all that.</p>
+                <p>So, Hologram City became a way to explore contemporary art from a distance — to draw a clear distinction between the real world and the art world, and to show where they meet. The strongest example of this is <em>Anytime</em>, which kickstarted the entire process of world-building that has now evolved into a sci-fi novel.</p>
+                <p>To give you some context on how this plays out in the song <em>Anytime</em>: it describes a woman in isolation, deeply longing for connection in a world that is both hyper-connected and emotionally disconnected. She uses a virtual reality system to create a digital person with the qualities of someone she adores. Now, yes — the song is 7 minutes long. I know what you’re thinking: <em>ain’t nobody got time for that</em>. But hear me out — it's about immersing yourself in the story, like making an inquiry. My works aren't made for passive enjoyment; they're made to provoke thought.</p>
+                <p>Also, connecting the two mediums — the album and the novel — is the track <em>Midnight Drive to Shambhala</em>, which directly links the concept album to the book. It portrays two lovers escaping into a fantasy, much like Bethany and James in the novel *Hologram City: Year 2199*.</p>
+                <p>And to note, Shambhala is an ancient prophecy of a spiritual kingdom of enlightenment. It ties into Buddhist belief and the coming of the fifth Buddha, Maitreya. The song, then, becomes a reflection on the longing for enlightenment — and Hologram City, as an illusory, dreamlike place, mirrors that idea. The journey toward Shambhala becomes symbolic of the yearning for spiritual attainment. That was a little creative fun on my part — connecting the two to create a feeling or a vivid sense of place.</p>
+                <a href = "https://youtu.be/zeVboCzvkKA?si=7rHq_knNleaEynTX" target="_blank" class = "links">Link to <em>Anytime</em>.</a>
+                <p></p>
+            </div>
+            <img src="https://raw.githubusercontent.com/DylanAustin-TheDreamer/Website/refs/heads/main/Mother%20Mary.png" class = "gallery-img">
+            <div class = "hide-info">    
+                <p></p>
+                <p>Songs from the Mother Mary - An acoustic set from the Album Naraka</p>
+                <a href = "https://youtu.be/T5JxnuBxHTw?si=PlfMc5aVnm_Lm8J1" target="_blank" class = "links">Link to <em>Lady by the Sea</em>.</a>
+                <p></p>
+            </div>
+            <img src="https://raw.githubusercontent.com/DylanAustin-TheDreamer/Website/refs/heads/main/Naraka.png" class = "gallery-img">
+            <div class = "hide-info">
+                <p></p>
+                <p>Naraka - Concept Album</p>
+                <p>"Naraka" is a complicated one — it's an exploration of Buddhist concepts. Naraka, to begin with, is 'Hell' in Buddhism. But its conceptual substance is not in line with the Abrahamic versions of Hell; rather, it follows Buddhist philosophies. It's an entirely different system, centered on themes of karma, cause and effect, and impermanence. These hells are long-lasting, but not eternal — as all conditioned things are impermanent. The same goes for heavens. If heaven is symmetrical, then hell is asymmetrical. So there's also a bit of yin and yang philosophy functioning there too. Buddhism can be beautifully simple, but its depths are profound.</p>
+                <p>Let’s take a deeper look at the album "Naraka." One theme I found both interesting and a little ironic was that the beings in the hells are not punished by external forces; rather, they suffer as a result of their own karma — they experience the torment of their own minds. I found that quite relatable and saw how my writing reflected my deeper psychology, just as Carl Jung might explain. But I also realized how cruel it is to be condemned to hell for something as humble and human as the desire for love. (This idea is part of the album’s intro too.) So, I approach the Hells in this album from a place of compassion — challenging the suffering there, not embracing it. While the album is shaped by reflections of my own inner world, its resolutions are some of the most beautiful and enlightening. "Naraka" became an artistic expression grounded in Buddhist thought.</p>
+                <p>One of my favorite songs from the album is <em>Forms</em>. It’s partly inspired by an old friend of mine who has Borderline Personality Disorder — which already sounds like a hellish condition in itself. A bit disturbing, yes, but such is the nature of the Hells, if you follow my meaning. The song is an observation of that condition, and through it, we realise that these individuals are only human. We begin to see parts of ourselves in others. That’s what the line — <em>"I see you, I know you... My fellow Dreamer"</em> — is about. It’s an expression of compassion, recognising our shared humanity. That’s why I love the song — there's a piece of all of us in it.</p>
+                <p>And as Shakyamuni Buddha said: “Seeing others as a likeness to ourselves, we should not cause for harm.” Here is another line I love: “All beings tremble at the rod; So one should not harm with the rod.” These teachings bring us back to that recognition — the self in others. And although the "rod" may well have referred to a whip in the Buddha’s time... I have my own interpretation: one should not cast judgment. And just one more thing whilst we are on the subject: When Socrates was ordered to kill a slave when he was an infantry man in his time, he refused to kill the slave after seeing the slave as a likeness to himself, and he threw down the sword... And I think in his life, that must have been a crucial moment that would awaken something within him, and forge his destiny. That's how I visualize it anyway.</p>
+                <a href = "https://youtu.be/oQ2uZCQB-bA?si=VoYdHi_6shE6q0_w" target="_blank" class = "links">Link to <em>Forms</em>.</a>
+              </div>
+        </div>
+
+
+
+
+        <div class="container">
+        <header class = "head-container">
+          <nav class="nav">
+            <a href="https://www.youtube.com/watch?v=48XzsuSV7_E" target="_blank">Youtube</a> |
+            <a href="https://www.instagram.com/______thedreamer______/" target="_blank"> Instagram</a> |
+            <a href="https://www.facebook.com/profile.php?id=61564674761572" target="_blank"> Facebook</a>
+          </nav>
+        </header>
+
+        <h1 class="Heads">
+        Hello, my name is <strong>Dylan Austin...</strong>
+        </h1>
+
+        <div class="img-wrapper">
+            <div class = "img-background">
+                <img src="https://raw.githubusercontent.com/DylanAustin-TheDreamer/Website/refs/heads/main/me.jpg" class="img" />
+            </div>
+        </div>
+
+        <article>
+          <h2>Introduction to the First Side of Dylan</h2>
+          <h3>So who is Dylan? Let’s describe myself as if myself was a friend.</h3>
+          <p></p>
+          <p>I suppose the first place to start would be that Dylan is a certain kind of thinker — a thinker of all things life and the human condition. Why? Maybe he’s a seeker of something. Someone trying to solve a kind of spiritual riddle about his own life. Maybe that brings him closure. Maybe we’re all on a similar path, seeking closure for one thing or another, and each path we take is meant to be some form of remedy. It’s neither good nor bad — just an observation of what is. Maybe by creating distance from the world’s dramas, by stepping outside of ourselves, we can see things more clearly.</p>
+          <p>For Dylan, that’s a useful tool. There’s no point in standing like a structure against the roaring waves of a stormy sea — wave after wave, force upon force, seeing nothing but the haze of the storm. It is better to be a small, nimble raft, one that rides the waves to calmer seas... Distance... Clarity... And what is meditation, if not what I’ve just described? But I suppose that’s just Dylan’s thing — thinking about the nature of life and the world. I think he likes it. I think he longs to talk about it. And maybe that’s the reason behind his artistic endeavours — a form of therapy, and a way of communicating.</p>
+        </article>
+
+        <article>
+          <h2>The Artistic Side of Dylan</h2>
+
+          <p>When I was young, I experienced a lot of isolation and insecurity — a lot of neglect, really. And the truth is, many people have, and still do, suffer from such things. But fortunately, during that time, I started learning guitar. I was really into a band called Blue Öyster Cult back then, and I desperately wanted to learn how to play! I loved the sound and <em>expression</em> of the guitar — I was fascinated by it. I used to listen to guitar solos for hours during my teenage years; I really dug it! Out of my love for guitar music, I wanted to be able to play solos and be in a band. However, music quickly became a way of channelling emotions and expressing myself in other ways, like songwriting. I never had a formula — I used to write based on ideas and poetic expressions that, looking back, weren’t all that great. And my music today might still not be fantastic, but it’s my therapy — my friend in the dark. Ever since then, music has been like a best friend, and I use it as part of my own journey toward enlightenment. It’s a powerful tool, and one that I use to express myself for the sake of empowerment and conversation.</p>
+
+          <p>Quite ironically, the band Blue Öyster Cult that I loved was a concept band. And that’s the kind of music I create — I’m a concept artist. A concept artist explores themes and ideas and expresses them in various ways, such as visual art, music and performance, or even science fiction writing. Truthfully, the world of concept art and ideas is not confined to one form — it’s vast. And for a thinker like me, full of creativity and imagination, it’s a perfect fit. This website is a showcase of my work — all created by me, using the skills and abilities I’ve developed over the years.</p>
+        </article>
+
+        <article>
+          <h2>The Inspired Side of Dylan</h2>
+          <p></p>
+          <p>Shall we start with music first?</p>
+          <p>I was listening to Bob Dylan from around eleven years old or so, and I used to sit and try to decipher the meaning behind his lyrics. There was another figure I really liked too—Syd Barrett, from early Pink Floyd. He liked how songs could hold different meanings depending on the lens through which you chose to view them. Like Dylan, he was also a reader of the I Ching—not that it solely influenced his music, but it certainly influenced his character. The I Ching is an ancient philosophical text about the balance and diplomacy between forces in accordance with natural law. It also touches on spiritual attainment, though I think that part can feel subjective depending on the reader. It’s strange—it’s one of the most objective philosophy books out there, and yet it gives rise to such personal interpretations. Maybe that’s the beauty of the personal experience it can offer.</p>
+          <p>Anyway, I think we said we were going to talk about music... Ah yes. Music is a very visual and captivating experience. It can take you places. People like Syd Barrett sought to explore realms beyond normal perception, then return and reshape them into something cohesive. An abstraction made into definition. An attempt to articulate what’s otherwise difficult to describe. I love that. It gave me the foundation to explore psychology through music. That journey eventually led me to discover some deeply interesting figures, like Carl Jung, and his analysis of mythologies and symbols—things I’ve since seen reflected in my own subconscious writing. It’s deep stuff that really fascinates me. No, it’s not necessarily going to be understood by a conventional crowd, and that’s okay. It’s what I like to explore.</p>
+          <p>For example, I first caught wind of this deeper dimension after writing a bit of a silly song called <em>The Wizard’s Ballad</em>, just because I felt like it. But the intention behind it—and the narrative it tells—actually mirrors the myth of the Fisher King. That’s when I sort of woke up to what I was really doing. Through my experimenting (and admittedly rough recordings that don’t do the vision full justice), I realized I was subconsciously writing about these universal themes of the human condition. At the time, I didn’t understand what I was doing, but now I see it as something I can develop into a form of emotional healing. And I don’t want to do that just for myself. I want to continue writing as a spiritual writer in the hope that maybe I can help others awaken to themselves too. It’s tricky to describe, but by now, I think you should have a rough conceptual sense of what I mean. That’s probably enough for now.</p>
+          <p>When it comes to music, I enjoy a broad variety of styles, but I wanted to focus on the most important inspirations—those that have stayed with me most. And I should mention one other figure who grounded me when I needed it most... Socrates. He kind of flipped the switch on for me, so to speak, when I was filled with doubt—about myself, and about many things. I think that kind of philosophical material lit something up in me, right when I needed it. And do you know what's really funny? It was said that in his time amongst his group of friends and thinkers alike, they would invite young men to acompany them, admire their handsome features and spoon feed them wisdom... a very funny thing to say, but let me be there for just a moment... It was a recurring theme that he would touch the minds of young men, and he's still doing it; And I think it's amazing that a person can do that, even having left this world so long ago. And it's the same with Buddha too.</p>
+        </article>
+
+        <article>
+          <h2 id="BackgroundLayer">The Work I have done</h2>
+
+          <p>On the left-hand column of this page, you can click the images to read more about the work I’ve completed and released. On the right-hand column, you’ll find a showcase of what I’m currently working on! - (If you are on mobile view - You can just scroll down to view)</p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </article>
+
+        <footer> <p> @Copyright protected work </p>
+          </footer>
+
+        </div>
+
+        <div class = "containerRight">
+            <h1>My Works In Progress:</h1>
+            <p><img src="https://m.media-amazon.com/images/I/713XJQpNeZL._SY466_.jpg" class = "img-shadowonly"></p>
+            <p> Hologram City - Year 2199</p>
+            <p> Science Fiction Novel - Currently at 33,000 words</p>
+            <h2> <u>Summary</u> </h2>
+            <p> Bethany and James, from a small northern town, embark on an adventure aboard one of the first Earth-to-Orbit vehicles powered by AI. They befriend the AI system, which is programmed with subjective parameters based on preferences like current weather conditions and cargo weight. Along the way, they engage in deep and intimate philosophical discussions. And so, off they go — flying above the clouds on their journey to reach Hologram City: a place of wonder and dreams...</p>
+        </div>    
+    </div>
+  </body>
+</html>
